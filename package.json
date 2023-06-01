@@ -17,7 +17,7 @@
 		"reporter",
 		"webhook"
 	],
-	"author": "Steven Chapman",
+	"author": "Steve Chapman",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/steveycee/nightwatchjs-teams-reporter/issues"
