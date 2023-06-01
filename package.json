@@ -1,0 +1,29 @@
+{
+	"name": "nightwatchjs_teams_reporter",
+	"version": "0.1.0",
+	"description": "A package to help you surface the results of your NightwatchJS runs into Microsoft Teams.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/steveycee/nightwatchjs-teams-reporter.git"
+	},
+	"keywords": [
+		"nightwatchjs",
+		"microsoft",
+		"teams",
+		"reporter",
+		"webhook"
+	],
+	"author": "Steven Chapman",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/steveycee/nightwatchjs-teams-reporter/issues"
+	},
+	"homepage": "https://github.com/steveycee/nightwatchjs-teams-reporter#readme",
+	"dependencies": {
+		"chalk": "^4.1.2"
+	}
+}
