@@ -1,10 +1,10 @@
 # NightwatchJS Teams Reporter
 
-WIP
+WIP.
 
 ## Usage
 
-WIP
+WIP.
 
 ## Thanks
 
