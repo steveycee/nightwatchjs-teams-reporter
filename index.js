@@ -1,9 +1,21 @@
 const chalk = require("chalk");
 
 function postMessage(results) {
-	const lastErrorObj = results.lastError;
+	const sendOnSuccess = process.env.npm_config_sendOnSuccess;
 	const url =
 		process.env.npm_config_testWebhookURL || process.env.INBOUND_TEAMS_WEBHOOK;
+
+	if (results.lastError != null || sendOnSuccess == 1 || results.error > 0) {
+		console.log(
+			"THERE IS AN ERROR THERE IS AN ERROR THERE IS AN ERROR THERE IS AN ERROR THERE IS AN ERROR"
+		);
+	} else {
+		console.log(
+			"THERE IS NO ERROR THERE IS NO ERROR THERE IS NO ERROR THERE IS NO ERROR "
+		);
+	}
+
+	const lastErrorObj = results.lastError;
 
 	// Handling last error
 	let lastErrorPre = lastErrorObj
