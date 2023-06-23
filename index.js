@@ -1,18 +1,23 @@
 const chalk = require("chalk");
 
-function postMessage(results) {
+function sendCardToTeams(results) {
 	const sendOnSuccess = process.env.npm_config_sendOnSuccess;
 	const url =
 		process.env.npm_config_testWebhookURL || process.env.INBOUND_TEAMS_WEBHOOK;
 
-	if (results.lastError != null || sendOnSuccess == 1 || results.error > 0) {
-		sendCard();
-		console.log("SENDING CARD");
+	if (results.lastError != null || sendOnSuccess || results.error > 0) {
+		composeCardForTeams();
 	} else {
-		console.log("NOT SENDING CARD BECAUSE THERE WAS NO ERRROR ");
+		console.log(
+			chalk.yellow(
+				`Since NightwatchJS found no issues NightwatchJS Teams Reporter has not sent a card to teams. If you want to send a card regardless then you can add this parameter: `
+			) +
+				chalk.white(`--sendOnSuccess `) +
+				chalk.yellow(`to your node script.`)
+		);
 	}
 
-	function sendCard() {
+	function composeCardForTeams() {
 		const lastErrorObj = results.lastError;
 
 		// Handling last error
@@ -95,6 +100,6 @@ NightwatchJS Teams Reporter invoked and returned: `) +
 
 module.exports = {
 	write: async function (results, options) {
-		postMessage(results);
+		sendCardToTeams(results);
 	},
 };
