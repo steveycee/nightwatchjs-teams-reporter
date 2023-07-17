@@ -25,5 +25,8 @@
 	"homepage": "https://github.com/steveycee/nightwatchjs-teams-reporter#readme",
 	"dependencies": {
 		"chalk": "^4.1.2"
+	},
+	"devDependencies": {
+		"jest": "^29.6.1"
 	}
 }
