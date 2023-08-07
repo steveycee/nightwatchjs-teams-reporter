@@ -4,17 +4,25 @@ _This tool is a work in progress._
 
 By default a card will only be sent to teams if there is an error, this behaviour can be overridden with options described below.
 
-## Installation:
+## Installation and Setup:
 
 `npm i nightwatchjs_teams_reporter --save`
 
-You will also either need to set the URL of your Teams webhook as an environment variable in your tool of choice, a .env file locally, in your terminal or using the options below (recommended for testing only).
+Next you need to setup the URL for your webhook. You can look up how to get the [incoming webhook for teams here](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=dotnet).
 
-Environment variable: `INBOUND_TEAMS_WEBHOOK=<Replace <this> with your Teams WebhookURL e.g. https://place.webhook.office.com/webhook/abigoldhash>`
+You will also either need to set the URL that you got above so that NightwatchJS Teams Reporter can use it. In CI you can set it as an environment variable in your tool of choice. Locally you can use a .env file or set the environment variable locally in your terminal. You can also set it as an option when calling the NightwatchJS Teams Reporter using the options defined further down the readme (recommended for testing only).
+
+I like using a .env file.
+
+### .env
+
+Add something that looks like this, note you need to replace everything after the equals sign (=) with your inbound teams webhook URL.
+
+`INBOUND_TEAMS_WEBHOOK=<Replace <this> with your Teams WebhookURL e.g. https://place.webhook.office.com/webhook/abigoldhash>`
 
 ## Usage
 
-Include in npm scripts as below:
+Here are some examples of usage below as they would appear in your projects `package.json` file under `scripts`:
 
 ```
 	"scripts": {
@@ -25,7 +33,7 @@ Include in npm scripts as below:
 	},
 ```
 
-This example us from Windows. I found concatinating together different options tricky and the internet seems to think this is a Windows consideration. So above you can see I reuse `test:reporter` in other scripts rather than chaining together options.
+_This is an example from Windows. I found concatinating together different options tricky and the internet seems to think this is a Windows consideration. So above you can see I reuse `test:reporter` in other scripts rather than chaining together options._
 
 ### Options:
 
