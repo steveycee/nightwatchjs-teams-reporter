@@ -1,7 +1,7 @@
 {
-  "name": "nightwatchjs_teams_reporter",
+  "name": "nightwatchjs-teams-reporter",
   "version": "0.1.0",
-  "description": "A package to help you surface the results of your NightwatchJS runs into Microsoft Teams.",
+  "description": "A package to help you surface the results of your NightwatchJS runs onto Microsoft Teams.",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -28,7 +28,6 @@
   },
   "devDependencies": {
     "jest": "^29.6.1",
-    "jest-fetch-mock": "^3.0.3",
-    "node-fetch": "^3.3.1"
+    "jest-fetch-mock": "^3.0.3"
   }
 }
