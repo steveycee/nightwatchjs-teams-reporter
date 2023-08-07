@@ -6,7 +6,7 @@ By default a card will only be sent to teams if there is an error, this behaviou
 
 ## Installation and Setup:
 
-`npm i nightwatchjs_teams_reporter --save`
+`npm i nightwatchjs-teams-reporter --save`
 
 Next you need to setup the URL for your webhook. You can look up how to get the [incoming webhook for teams here](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=dotnet).
 

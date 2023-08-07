@@ -1,6 +1,6 @@
 {
   "name": "nightwatchjs-teams-reporter",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A package to help you surface the results of your NightwatchJS runs onto Microsoft Teams.",
   "main": "index.js",
   "scripts": {
