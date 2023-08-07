@@ -29,7 +29,7 @@ Here are some examples of usage below as they would appear in your projects `pac
 ```
 	"scripts": {
 		"test": "nightwatch",
-		"test:reporter": "nightwatch --reporter=nightwatch_teams_reporter",
+		"test:reporter": "nightwatch --reporter=nightwatchjs-teams-reporter",
 		"test:reporter:projectName": "npm run test:reporter --testProjectName='Non-default Test ProjectName'",
 		"test:reporter:send": "npm run test:reporter --sendOnSuccess"
 	},
