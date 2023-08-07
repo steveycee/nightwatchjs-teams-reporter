@@ -16,9 +16,11 @@ I like using a .env file.
 
 ### .env
 
-Add something that looks like this, note you need to replace everything after the equals sign (=) with your inbound teams webhook URL.
+Create a .env file in the root of your project and populate it with something that looks like this.
 
-`INBOUND_TEAMS_WEBHOOK=<Replace <this> with your Teams WebhookURL e.g. https://place.webhook.office.com/webhook/abigoldhash>`
+Note you need to replace everything after the equals sign (=) with your inbound teams webhook URL.
+
+`INBOUND_TEAMS_WEBHOOK=<Replace this with your Teams WebhookURL e.g. https://place.webhook.office.com/webhook/abigoldhash>`
 
 ## Usage
 
