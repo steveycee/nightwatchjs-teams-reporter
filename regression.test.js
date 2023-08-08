@@ -33,6 +33,21 @@ test("sendCardToTeams should log a message if there are no errors", async () => 
 	);
 });
 
+test("sendCardToTeams should not send if there are no errors", async () => {
+	const results = {
+		lastError: null,
+		error: 0,
+	};
+
+	fetchMock.mockResponseOnce(JSON.stringify({ data: "12345" }));
+
+	console.log = jest.fn();
+
+	await write(results);
+
+	expect(fetchMock.mock.calls.length).toEqual(0);
+});
+
 test("sendCardToTeams should make a POST request if there are errors and match", async () => {
 	const results = {
 		lastError: "error",
