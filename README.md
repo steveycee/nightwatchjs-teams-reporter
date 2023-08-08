@@ -27,12 +27,12 @@ Note you need to replace everything after the equals sign (=) with your inbound 
 Here are some examples of usage below as they would appear in your projects `package.json` file under `scripts`:
 
 ```
-	"scripts": {
-		"test": "nightwatch",
-		"test:reporter": "nightwatch --reporter=nightwatchjs-teams-reporter",
-		"test:reporter:projectName": "npm run test:reporter --testProjectName='Non-default Test ProjectName'",
-		"test:reporter:send": "npm run test:reporter --sendOnSuccess"
-	},
+"scripts": {
+	"test": "nightwatch",
+	"test:reporter": "nightwatch --reporter=nightwatchjs-teams-reporter",
+	"test:reporter:projectName": "npm run test:reporter --testProjectName='Non-default Test ProjectName'",
+	"test:reporter:send": "npm run test:reporter --sendOnSuccess"
+},
 ```
 
 _This is an example from Windows. I found concatinating together different options tricky and the internet seems to think this is a Windows consideration. So above you can see I reuse `test:reporter` in other scripts rather than chaining together options._
