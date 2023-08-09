@@ -1,15 +1,11 @@
-// We need to import our function
-const { write } = require("./index.js"); // replace with the path to your file
+const { write } = require("./index.js");
 const fetchMock = require("jest-fetch-mock");
 
-// Enable fetch mocks
 fetchMock.enableMocks();
 
 beforeEach(() => {
-	// reset the fetch mock before each test
 	fetchMock.resetMocks();
 
-	// set the environment variables for the test
 	process.env = {
 		npm_config_testWebhookURL: "http://example.com/webhook",
 		INBOUND_TEAMS_WEBHOOK: "http://fallback.com/webhook",
@@ -46,6 +42,23 @@ test("sendCardToTeams should not send if there are no errors", async () => {
 	await write(results);
 
 	expect(fetchMock.mock.calls.length).toEqual(0);
+});
+
+test("sendCardToTeams should send if there are no errors but the send on success flag is set", async () => {
+	process.env.npm_config_sendOnSuccess = "true";
+
+	const results = {
+		lastError: null,
+		error: 0,
+	};
+
+	fetchMock.mockResponseOnce(JSON.stringify({ data: "12345" }));
+
+	console.log = jest.fn();
+
+	await write(results);
+
+	expect(fetchMock.mock.calls.length).toEqual(1);
 });
 
 test("sendCardToTeams should make a POST request if there are errors and match", async () => {
