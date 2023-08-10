@@ -12,7 +12,7 @@ beforeEach(() => {
 	};
 });
 
-test("sendCardToTeams should log a message if there are no errors", async () => {
+test("sendCardToTeams should log a message to the console if there are no errors", async () => {
 	const results = {
 		lastError: null,
 		error: 0,
@@ -29,7 +29,7 @@ test("sendCardToTeams should log a message if there are no errors", async () => 
 	);
 });
 
-test("sendCardToTeams should not send if there are no errors", async () => {
+test("sendCardToTeams should not send a card to teams if there are no errors", async () => {
 	const results = {
 		lastError: null,
 		error: 0,
@@ -44,24 +44,7 @@ test("sendCardToTeams should not send if there are no errors", async () => {
 	expect(fetchMock.mock.calls.length).toEqual(0);
 });
 
-test("sendCardToTeams should send if there are no errors but the send on success flag is set", async () => {
-	process.env.npm_config_sendOnSuccess = "true";
-
-	const results = {
-		lastError: null,
-		error: 0,
-	};
-
-	fetchMock.mockResponseOnce(JSON.stringify({ data: "12345" }));
-
-	console.log = jest.fn();
-
-	await write(results);
-
-	expect(fetchMock.mock.calls.length).toEqual(1);
-});
-
-test("sendCardToTeams should make a POST request if there are errors and match", async () => {
+test("sendCardToTeams should make a POST request which sends a card to teams if there are errors", async () => {
 	const results = {
 		lastError: "error",
 		error: 1,
@@ -85,3 +68,24 @@ test("sendCardToTeams should make a POST request if there are errors and match",
 		),
 	});
 });
+
+test("sendCardToTeams should send a card to teams if there are no errors and the send on success flag is set", async () => {
+	process.env.npm_config_sendOnSuccess = "true";
+
+	const results = {
+		lastError: null,
+		error: 0,
+	};
+
+	fetchMock.mockResponseOnce(JSON.stringify({ data: "12345" }));
+
+	console.log = jest.fn();
+
+	await write(results);
+
+	expect(fetchMock.mock.calls.length).toEqual(1);
+});
+
+//sendCardToTeams should gracefully handle no URL being set
+
+//sendCardToTeams should gracefully handle no project name being set
